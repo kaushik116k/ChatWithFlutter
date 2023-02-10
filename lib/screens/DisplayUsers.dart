@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:demo_firebase_1/screens/ChatActivity.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -32,14 +33,25 @@ class getAllUsers extends StatelessWidget {
                     if (document.id == auth.currentUser!.uid) {
                       return Container(height: 0);
                     }
-                    return Container(
-                      height: 30,
-                      child: Padding(
-                          padding: EdgeInsets.all(5),
+                    return GestureDetector(
+                      onTap: (){
+                        Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => ChatActivity(
+                            document['userId'].toString(),
+                            document['username'].toString(),
+                          )),
+                        );
+                      },
+                      child: Container(
+                        height: 50,
+                        child: Padding(
+                          padding: EdgeInsets.all(10),
                           child: Text(
                             document['username'].toString(),
-                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                           ),
+                        ),
+
                       ),
                     );
                   },
