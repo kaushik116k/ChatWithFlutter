@@ -33,8 +33,14 @@ class getAllUsers extends StatelessWidget {
                       return Container(height: 0);
                     }
                     return Container(
-
-                      child: Text(document['username'].toString()),
+                      height: 30,
+                      child: Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Text(
+                            document['username'].toString(),
+                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                          ),
+                      ),
                     );
                   },
                   separatorBuilder: (context, index) {
