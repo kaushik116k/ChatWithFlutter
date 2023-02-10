@@ -34,7 +34,7 @@ class getAllUsers extends StatelessWidget {
                     }
                     return Container(
 
-                      child: Text(document.data()!.toString()),
+                      child: Text(document['username'].toString()),
                     );
                   },
                   separatorBuilder: (context, index) {
